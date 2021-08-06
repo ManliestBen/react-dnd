@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css'
+import { Route } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
+import ClassList from '../ClassList/ClassList'
 
 class App extends Component {
   state = {
@@ -15,6 +17,12 @@ class App extends Component {
       <>
         <NavBar 
           navItems={this.state.navItems}
+        />
+        <Route 
+          exact path="/class-list"
+          render={()=> 
+            <ClassList />
+          }
         />
       </>
     );
