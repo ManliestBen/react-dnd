@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'
+import NavBar from '../../components/NavBar/NavBar'
 
 class App extends Component {
   state = {
@@ -12,7 +13,9 @@ class App extends Component {
   render() { 
     return (
       <>
-        <h1>APP.JS</h1>
+        <NavBar 
+          navItems={this.state.navItems}
+        />
       </>
     );
   }
