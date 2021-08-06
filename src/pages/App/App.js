@@ -1,24 +1,21 @@
-import './App.css';
+import React, { Component } from 'react';
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src="/images/logo.gif" className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    navItems: [
+      {url: "/class-list", name: "Class List"}, 
+      {url: "/monster-list", name: "Scary Monsters"}, 
+      {url: "/spell-search", name: "Search for Spells"}
+    ]
+  }
+  render() { 
+    return (
+      <>
+        <h1>APP.JS</h1>
+      </>
+    );
+  }
 }
-
+ 
 export default App;
