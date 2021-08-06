@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
+import { getClassList } from '../../services/api-calls'
 
 class ClassList extends Component {
   state = { 
-    results: ['Wizard', 'Ranger', 'Rogue']
+    results: []
+  }
+
+  async componentDidMount() {
+    const classData = await getClassList()
+    this.setState({results: classData.results})
   }
 
   render() { 
@@ -10,18 +16,16 @@ class ClassList extends Component {
       <div>
         <h3>Class List</h3>
         <div className="icon-container">
-          {/** 
-						* This is where we map over our results, representing 
-						* each with a div containing an image and a name 
-					*/}
           {this.state.results.map((classTitle) => (
-            <div id="classDiv" key={classTitle}>
+            <div id="classDiv" key={classTitle.index}>
+              {/* Update the src to use the .name property for our photos */}
               <img 
-								style={{ width: "100px", height: "100px" }}
-								src={`/images/${classTitle}.svg`} 
+								style={{ width: "100px", height: "100px" }} 
+								src={`/images/${classTitle.name}.svg`} 
 								alt="class-logo"
 							/>
-              {classTitle}
+              {/* Update the text rendered, based on the name of the class */}
+              {classTitle.name}
             </div>
           ))}
         </div>
